@@ -1,0 +1,31 @@
+1. it does not differentiate long and int type. the differentiate is made in SQLExprParser.cpp.
+2. change std::list to std::vector
+3. add a char* based identifierEquals("SAVEPOINT"
+4. In SQLExprParser, the std::list returned, is newed. Should use auto_ptr, or
+make it memeber of class.
+5. anything newed, Should be removed;
+6. the list/vector/set of pointers, should be released.
+
+7. change list to vector
+
+8. how about the delete in SQLExprParser?? what's the effect?
+
+
+
+
+
+
+------------------------------------------------------
+
+SQLStatementParser: 
+			=> SQLParer
+				=> Lexer
+				construct SQLParser done
+				=> Lexer getNextToken()
+			=> SQLExprParser with SQLParser's lexer
+				=> SQLParser with SQLParser's lexer
+				construct SQLExprParser done
+		=> SQLStatementParser construct done
+
+
+
